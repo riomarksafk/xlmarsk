@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<style type="text/css">
+		body{
+			/*background:-webkit-linear-gradient(left,#1fa2ff,#12d8fa,#a6ffcb);
+			 /* background: linear-gradient(to right, #fffc00, #ffffff);*/
+			 background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+		}
+		.buttoncolor{
+			background: linear-gradient(to right, #fc466b, #3f5efb); 
+		}
+		
+		.top{
+			position: relative;
+			width:1400px;
+			height:30px;
+			margin: 0px auto;
+			
+		}
+		.tip{
+			position:absolute;
+			left:0px;
+			top:320px;
+			display:none;
+			width:200px;
+			height:200px;
+			background: linear-gradient(to right, #fc00ff, #00dbde); 
+			opacity:0.8;
+			
+		}
+		#tips{
+			position:absolute;
+			top:320px;
+			left:0px;
+
+		}
+		#login{
+			position:absolute;
+			top:0px;
+			right:0px;
+		}
+		#restart{
+			position:absolute;
+			top:0px;
+			right:500px;
+		}
+		.logindiv{
+			position:relative;
+			margin:0px auto;
+		    display:none;
+		    padding:100px 100px;
+			width:200px;
+			height:200px;
+			background: linear-gradient(to right, #fc00ff, #00dbde); 
+			opacity:0.8;
+			
+		}
+		.main-part{
+			position: relative;
+			width:1400px;
+			margin:0px auto;
+		
+		}
+		#lunbo{
+			position: absolute;
+			left:0px;
+			top:0px;
+			width:500px;
+			height: 250px;
+			overflow: hidden;
+		}
+        .img{
+        	position:absolute;
+        	z-index: -1;
+        } 
+        .gamepart{
+        	position: absolute;
+        	right: 0px;
+        	top: 0px;
+        	width:870px;
+        	height:700px;
+        	overflow: hidden;
+        	 background: linear-gradient(to right, #525252, #3d72b4);
+        } 
+        .imgToBigger{
+        	position: absolute;
+        	top:256px;
+        	left:0px;
+        	width: 500px;
+        	height: 450px;
+        	background: linear-gradient(to right, #009fff, #ec2f4b);
+        }
+        #simg{
+        	position: absolute;
+        	top: 0px;
+        	left:0px;
+        	width:230px;
+        	height:230px;
+        }
+        #toBigTool{
+        	display:none;
+        	width:80px;
+        	height:80px;
+        	position: absolute;
+        	left:0px;
+        	top:0px;
+        	background-color:black;
+        	opacity:0.5;
+        	cursor:pointer;
+        }
+        #bimg{
+        	position:absolute;
+        	right:0px;
+        	top:0px;
+        	display: none;
+        	width:230px;
+        	height:230px;
+        	overflow:hidden;
+        }
+        #bigimg{
+        	position:absolute;
+        	left:0px;
+        	top:0px;  	
+        }
+       #img1{
+       	position:absolute;
+       	left:0px;
+       	top:0px;
+       }
+        #img2{
+       	position:absolute;
+       	left:300px;
+       	top:0px;
+       }
+        #img3{
+       	position:absolute;
+       	left:0px;
+       	top:300px;
+       }
+        #img4{
+       	position:absolute;
+       	left:300px;
+       	top:300px;
+       }
+	</style>
+
+</head>
+<body>
+	<div class="top">
+	 <input type="button" value="登录注册" id="login" class="buttoncolor"/>
+	 <input type="button" value="restartGame" class="buttoncolor" id="restart"
+	 onclick="restart()"/>
+	</div>
+	<div class="main-part" id="mainBox">
+	    <div id="lunbo">
+			<div class="img"><img src="images/1.jpg" width="500" height="250"/></div>
+			<div class="img"><img src="images/2.jpg"/width="500" height="250"></div>
+			<div class="img"><img src="images/3.jpg"/width="500" height="250"></div>
+			<div class="img"><img src="images/4.jpg"/width="500" height="250"></div>		
+	    </div>
+
+	    <div class="imgToBigger" id="tb">
+	    	<div id="simg">
+	    		<img src="images/4.jpg" width="230" height="230"/>
+	    		<div id="toBigTool"></div>
+	    	</div>
+
+            <div id="bimg">
+            	<img  src="images/4.jpg" id="bigimg"/>
+            </div>
+	    </div>
+
+	    <div class="gamepart" id="gamepart">
+	    	<img  class="img1" id="img1" src="images/lt.jpg" width="230" height="230px"
+             onmousedown="pressmouse(event)" onmousemove="move(event,this)" onmouseup="mouseup(event)"
+	    	/>
+	    	<img  class="img1" id="img2" src="images/rt.jpg" width="230" height="230px"
+            onmousedown="pressmouse(event)" onmousemove="move(event,this)" onmouseup="mouseup(event)"
+	    	/>
+	    	<img  class="img1" id="img3"src="images/lb.jpg" width="230" height="230px"
+	    	onmousedown="pressmouse(event)" onmousemove="move(event,this)" onmouseup="mouseup(event)"/>
+	    	<img  class="img1" id="img4" src="images/rb.jpg" width="230" height="230px"
+	    	onmousedown="pressmouse(event)" onmousemove="move(event,this)" onmouseup="mouseup(event)"/>
+		
+	    </div>
+    </div>
+    <div class="tip" id="tipdiv">
+    	<ul>
+    		<li>鼠标放置轮播位置，切换速度加快</li>
+            <li>点击登录，tips弹出框</li>
+            <li>在拼图游戏界面拖动图片进行拼图</li>
+            <li>鼠标划至小图位置，获取放大镜功能</li>
+    	</ul>
+     </div>
+    <input type="button" value="tips" id="tips" class="buttoncolor"/>
+    <div class="logindiv" id="divlog">
+    	<form>
+    		userName<input type="text"/><br/>
+    		passWord<input type="password"/>
+    		<input type="button" value="logIn" class="buttoncolor"/>
+    	</form>
+
+    </div>
+</body>
+<script>
+//设置window.onload,在窗口加载好的时候播放轮播图
+      window.onload=function(){
+      	var imgs=document.getElementsByClassName("img");
+      	var i=0;
+      	var quickTimer;
+      	var timer=setInterval(function(){
+             imgs[i].style.zIndex =i;
+             if(i==imgs.length-1){
+             	for(var j=0;j<imgs.length;j++){
+             		imgs[j].style.zIndex ='-1';
+             	}
+             	i=-1;
+             }
+             i++;
+             
+    	},2000)
+      var lunbo=document.getElementById("lunbo");
+      lunbo.onmouseenter=function(){
+      	clearInterval(timer);
+      	quickTimer=setInterval(function(){
+      		imgs[i].style.zIndex =i;
+             if(i==imgs.length-1){
+             	for(var j=0;j<imgs.length;j++){
+             		imgs[j].style.zIndex ='-1';
+             	}
+             	i=-1;
+             }
+             i++;
+      	},100)
+      }
+      lunbo.onmouseleave=function(){
+      	clearInterval(quickTimer);
+        timer=setInterval(function(){
+        imgs[i].style.zIndex =i;
+             if(i==imgs.length-1){
+             	for(var j=0;j<imgs.length;j++){
+             		imgs[j].style.zIndex ='-1';
+             	}
+             	i=-1;
+             }
+             i++;
+        },2000)
+      }
+ }
+ //设置登录弹出框效果，鼠标移出时设置onmouseleave事件
+     var btoLogin=document.getElementById("login");
+      btoLogin.onclick=function(){
+      	var divLog=document.getElementById("divlog");
+      	divLog.style.display="block";
+}
+     var divlog=document.getElementById("divlog");
+     divlog.onmouseleave=function(){
+     	divlog.style.display="none";
+     }
+ //设置获取提示按钮,鼠标移开时设置onmouseleave事件
+ var tip=document.getElementById("tips");
+ tip.onclick=function(){
+ 	var tips=document.getElementById("tipdiv");
+ 	tips.style.display="block";
+ }
+ var  tips=document.getElementById("tipdiv");
+ tips.onmouseleave=function(){
+ 	tips.style.display="none";
+ }
+//设置放大功能模块
+var mainBox=document.getElementById("mainBox");
+var tb=document.getElementById("tb");
+var simg=document.getElementById("simg");
+var toBigTool=document.getElementById("toBigTool");
+var bigimg=document.getElementById("bimg");
+var bg=document.getElementById("bigimg");
+simg.onmouseover=function(){
+    bigimg.style.display="block";
+    toBigTool.style.display="block";
+        }
+simg.onmouseleave=function(){
+	bigimg.style.display="none";
+    toBigTool.style.display="none";
+} 
+simg.onmousemove=function(e){
+     var left=e.clientX-mainBox.offsetLeft-tb.offsetLeft-toBigTool.offsetWidth/2;
+     var top=e.clientY-mainBox.offsetTop-tb.offsetTop-toBigTool.offsetHeight/2;
+     var leftmax=simg.offsetWidth-toBigTool.offsetWidth;
+     var topmax=simg.offsetHeight-toBigTool.offsetHeight;
+     if(left>leftmax){
+     	left=leftmax;
+     }else if(left<0){
+     	left=0;
+     }
+     if(top>topmax){
+     	top=topmax;
+     }else if(top<0){
+     	top=0;
+     }
+     toBigTool.style.left=left+"px";
+     toBigTool.style.top=top+"px";
+     var rate=520/230;
+
+      bg.style.left=-rate*left+"px";
+      bg.style.top=-rate*top+"px";
+}  
+//拼图界面的JavaScript设置
+var imag1=document.getElementById("img1");
+var gamepart=document.getElementById("gamepart");
+var down=false;
+var leftadd=mainBox.offsetLeft+gamepart.offsetLeft+imag1.offsetWidth/2;
+var topadd=mainBox.offsetTop+gamepart.offsetTop+imag1.offsetHeight/2;
+var leftmax=gamepart.offsetWidth-imag1.offsetWidth;
+var topmax=gamepart.offsetHeight-imag1.offsetHeight;
+ function pressmouse(e){
+         down=true;
+    }
+function move(e,img){
+    	var left=e.clientX-leftadd;
+    	var top=e.clientY-topadd;
+    	if(left>leftmax){
+     	left=leftmax;
+        }else if(left<0){
+     	left=0;
+        }
+        if(top>topmax){
+     	top=topmax;
+        }else if(top<0){
+     	top=0;
+        }
+        if(down){
+        	img.style.left=left+"px";
+        	img.style.top=top+"px";
+        }        
+ }
+ function mouseup(e){
+ 	down=false;
+ }
+//拼图模块的伪随机位置
+var leftposition=["0","635","635","0"];
+var topposition=["0","0","465","465"];
+var a=0,b=1,c=2,d=3;
+var im1=document.getElementById("img1");
+var im2=document.getElementById("img2");
+var im3=document.getElementById("img3");
+var im4=document.getElementById("img4");
+   function restart(){
+   	    if((a+b+c+d)==6){
+    	 alert("多点几次看看能不能发现位置变化规律哦！");
+    	}
+        im1.style.left=leftposition[a%4]+"px";
+        im1.style.top=topposition[a%4]+"px";
+        im2.style.left=leftposition[b%4]+"px";
+        im2.style.top=topposition[b%4]+"px";
+        im3.style.left=leftposition[c%4]+"px";
+        im3.style.top=topposition[c%4]+"px";
+        im4.style.left=leftposition[d%4]+"px";
+        im4.style.top=topposition[d%4]+"px";
+        a+=3;
+        b+=3;
+        c+=3;
+        d+=3;
+    }
+</script>
+</html>
